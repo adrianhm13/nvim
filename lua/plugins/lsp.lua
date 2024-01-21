@@ -1,5 +1,21 @@
 return {
-	{ "folke/neoconf.nvim", cmd = "Neoconf", config = false, dependencies = { "nvim-lspconfig" } },
+	{
+		"neovim/nvim-lspconfig",
+		dependencies = {
+			{ "folke/neoconf.nvim", cmd = "Neoconf", config = true },
+		},
+		opts = function()
+			local capabilities = require("cmp_nvim_lsp").default_capabilities()
+			local lspconfig = require("lspconfig")
+
+			lspconfig.lua_ls.setup({
+				capabilities = capabilities,
+			})
+			lspconfig.tsserver.setup({
+				capabilities = capabilities,
+			})
+		end,
+	},
 	{
 		"williamboman/mason.nvim",
 		opts = function(_, opts)
@@ -51,20 +67,6 @@ return {
 		opts = function()
 			require("mason-lspconfig").setup({
 				ensure_installed = { "lua_ls", "tsserver" },
-			})
-		end,
-	},
-	{
-		"neovim/nvim-lspconfig",
-		opts = function()
-			local capabilities = require("cmp_nvim_lsp").default_capabilities()
-			local lspconfig = require("lspconfig")
-
-			lspconfig.lua_ls.setup({
-				capabilities = capabilities,
-			})
-			lspconfig.tsserver.setup({
-				capabilities = capabilities,
 			})
 		end,
 	},
