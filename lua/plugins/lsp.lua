@@ -1,10 +1,5 @@
 return {
-	{
-		"folke/neoconf.nvim",
-		opts = function()
-			require("neoconf").setup({})
-		end,
-	},
+	{ "folke/neoconf.nvim", cmd = "Neoconf", config = false, dependencies = { "nvim-lspconfig" } },
 	{
 		"williamboman/mason.nvim",
 		opts = function(_, opts)
