@@ -16,7 +16,7 @@ keymap.set("n", "-", "<C-x>")
 keymap.set("n", "<C-a>", "gg<S-v>G")
 
 -- Jumplist
-keymap.set("n", "<C-m>", "<C-i>", opts)
+keymap.set("n", "<C-i>", "<C-i>", opts)
 
 -- New tab
 keymap.set("n", "te", ":tabedit", opts)
