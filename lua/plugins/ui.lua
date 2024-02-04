@@ -68,18 +68,6 @@ return {
 				inc_rename = false, -- enables an input dialog for inc-rename.nvim
 				lsp_doc_border = false, -- add a border to hover docs and signature help
 			}
-			opts.views = {
-				cmdline_popup = {
-					border = {
-						style = "none",
-						padding = { 2, 3 },
-					},
-					filter_options = {},
-					win_options = {
-						winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder",
-					},
-				},
-			}
 		end,
 	},
 	{
@@ -116,19 +104,21 @@ return {
 			},
 		},
 	},
-
-	-- statusline
 	{
 		"nvim-lualine/lualine.nvim",
+		optional = true,
 		event = "VeryLazy",
-		opts = {
-			options = {
-				-- globalstatus = false,
-				theme = "tokyonight",
-			},
-		},
+		opts = function(_, opts)
+			local Util = require("lazyvim.util")
+			local colors = {
+				[""] = Util.ui.fg("Special"),
+				["Normal"] = Util.ui.fg("Special"),
+				["Warning"] = Util.ui.fg("DiagnosticError"),
+				["InProgress"] = Util.ui.fg("DiagnosticWarn"),
+			}
+			opts.options.theme = "tokyonight"
+		end,
 	},
-
 	-- filename
 	{
 		"b0o/incline.nvim",
