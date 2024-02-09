@@ -1,12 +1,5 @@
 return {
 	{
-		"nvim-cmp",
-		dependencies = { "hrsh7th/cmp-emoji" },
-		opts = function(_, opts)
-			table.insert(opts.sources, { name = "emoji" })
-		end,
-	},
-	{
 		"hrsh7th/cmp-nvim-lsp",
 	},
 	{
@@ -28,7 +21,9 @@ return {
 		opts = function()
 			vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
 			local cmp = require("cmp")
+			require("luasnip.loaders.from_vscode").lazy_load()
 			local defaults = require("cmp.config.default")()
+
 			return {
 				window = {
 					completion = cmp.config.window.bordered(),
@@ -74,6 +69,12 @@ return {
 					},
 				},
 				sorting = defaults.sorting,
+				preselect = cmp.PreselectMode.None,
+				snippet = {
+					expand = function(args)
+						require("luasnip").lsp_expand(args.body)
+					end,
+				},
 			}
 		end,
 		---@param opts cmp.ConfigSchema
