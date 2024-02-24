@@ -11,6 +11,9 @@ return {
 			lspconfig.tsserver.setup({
 				capabilities = capabilities,
 			})
+			lspconfig.gopls.setup({
+				capabilities = capabilities,
+			})
 		end,
 	},
 	{
@@ -25,6 +28,7 @@ return {
 				"prettierd",
 				"tailwindcss-language-server",
 				"typescript-language-server",
+				"gopls",
 				"css-lsp",
 			})
 		end,
@@ -63,7 +67,7 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		opts = function()
 			require("mason-lspconfig").setup({
-				ensure_installed = { "lua_ls", "tsserver" },
+				ensure_installed = { "lua_ls", "tsserver", "gopls" },
 			})
 		end,
 	},
