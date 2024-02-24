@@ -33,8 +33,8 @@ return {
       {";4", function() harpoon:list():select(4) end, desc ="Harpoon buffer 4"},
 
       -- Harpoon next and previous.
-      {"<;w>", function() harpoon:list():next() end, desc ="Harpoon next buffer"},
-      {"<;s>", function() harpoon:list():prev() end, desc ="Harpoon prev buffer"},
+      {";w", function() harpoon:list():next() end, desc ="Harpoon next buffer"},
+      {";s", function() harpoon:list():prev() end, desc ="Harpoon prev buffer"},
 
       -- Harpoon user interface.
       {"<a-7>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, desc ="Harpoon Toggle Menu"},
@@ -43,7 +43,6 @@ return {
       {";hc", function() harpoon:list():clear() end, desc ="Harpoon clear list"},
       -- Use Telescope as Harpoon user interface.
       {";h", function() toggle_telescope(harpoon:list() )end, desc ="Open Harpoon window"},
-    --
     }
 	end,
 	opts = function(_, opts)
