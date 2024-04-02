@@ -22,6 +22,10 @@ return {
 				"lua",
 				"javascript",
 				"tsx",
+				"ninja",
+				"python",
+				"rst",
+				"toml",
 			},
 		},
 		config = function(_, opts)

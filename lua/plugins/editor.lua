@@ -31,7 +31,6 @@ return {
 			},
 		},
 	},
-
 	{
 		"dinhhuy258/git.nvim",
 		event = "BufReadPre",
@@ -40,9 +39,30 @@ return {
 				-- Open blame window
 				blame = "<Leader>gb",
 				-- Open file/folder in git repository
-				browse = "<Leader>go",
-				-- Show the diff
-				diff = "<Leader>gd",
+				browse = "<Leader>gd",
+			},
+		},
+	},
+	{
+		"echasnovski/mini.diff",
+		event = "VeryLazy",
+		keys = {
+			{
+				"<leader>go",
+				function()
+					require("mini.diff").toggle_overlay(0)
+				end,
+				desc = "Toggle mini.diff overlay",
+			},
+		},
+		opts = {
+			view = {
+				style = "sign",
+				signs = {
+					add = "▎",
+					change = "▎",
+					delete = "",
+				},
 			},
 		},
 	},
