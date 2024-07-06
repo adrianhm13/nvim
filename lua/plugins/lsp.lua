@@ -7,17 +7,23 @@ return {
 			"mason.nvim",
 			"williamboman/mason-lspconfig.nvim",
 		},
-		opts = function()
-			local capabilities = require("cmp_nvim_lsp").default_capabilities()
-			local lspconfig = require("lspconfig")
-
-			lspconfig.lua_ls.setup({
-				capabilities = capabilities,
-			})
-			lspconfig.gopls.setup({
-				capabilities = capabilities,
-			})
-		end,
+		opts = {
+			inlay_hints = { enabled = false },
+		},
+		-- opts = function()
+		-- 	local capabilities = require("cmp_nvim_lsp").default_capabilities()
+		-- 	local lspconfig = require("lspconfig")
+		--
+		-- 	lspconfig.lua_ls.setup({
+		-- 		capabilities = capabilities,
+		-- 	})
+		-- 	lspconfig.gopls.setup({
+		-- 		capabilities = capabilities,
+		-- 	})
+		-- 	inlay_hints = {
+		-- 		enabled = false,
+		-- 	}
+		-- end,
 	},
 	{
 		"williamboman/mason.nvim",
