@@ -26,6 +26,10 @@ return {
 				"python",
 				"rst",
 				"toml",
+				"c",
+				"vim",
+				"vimdoc",
+				"query",
 			},
 		},
 		config = function(_, opts)

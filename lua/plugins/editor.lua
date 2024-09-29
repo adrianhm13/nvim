@@ -123,7 +123,7 @@ return {
 				";f",
 				function()
 					local builtin = require("telescope.builtin")
-					builtin.find_files({})
+					builtin.find_files({ follow = true })
 				end,
 				desc = "Lists files in your current working directory",
 				onOpen,
@@ -132,7 +132,7 @@ return {
 				";r",
 				function()
 					local builtin = require("telescope.builtin")
-					builtin.live_grep({})
+					builtin.live_grep({ follow = true })
 				end,
 				desc = "Search for a string in your current working directory and get results live as you type, respects .gitignore",
 			},
@@ -205,6 +205,7 @@ return {
 			local fb_actions = require("telescope").extensions.file_browser.actions
 
 			opts.defaults = vim.tbl_deep_extend("force", opts.defaults, {
+				follow = true,
 				wrap_results = true,
 				layout_strategy = "horizontal",
 				layout_config = { prompt_position = "top" },

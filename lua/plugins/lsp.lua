@@ -36,7 +36,6 @@ return {
 				"shfmt",
 				"prettierd",
 				"tailwindcss-language-server",
-				"typescript-language-server",
 				"gopls",
 				"css-lsp",
 			})
