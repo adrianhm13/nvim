@@ -38,6 +38,7 @@ return {
 				"tailwindcss-language-server",
 				"gopls",
 				"css-lsp",
+				"phpstan",
 			})
 		end,
 	},
@@ -51,6 +52,7 @@ return {
 			local opts = {
 				sources = {
 					null_ls.builtins.formatting.prettierd,
+					null_ls.builtins.diagnostics.phpstan,
 				},
 				on_attach = function(client, bufnr)
 					if client.supports_method("textDocument/formatting") then
@@ -113,4 +115,13 @@ return {
 	-- 		})
 	-- 	end,
 	-- },
+	{
+		"mfussenegger/nvim-lint",
+		optional = true,
+		opts = {
+			linters_by_ft = {
+				php = { "phpstan" },
+			},
+		},
+	},
 }
