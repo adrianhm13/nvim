@@ -6,6 +6,11 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
+vim.g.dbs = {
+	dev = "mysql://user:userpass@127.0.0.1:3306/",
+	-- staging = "Replace with your database connection URL.",
+}
+
 require("lazy").setup({
 	spec = {
 		-- add LazyVim and import its plugins
