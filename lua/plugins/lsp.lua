@@ -1,29 +1,9 @@
 return {
 	{
 		"neovim/nvim-lspconfig",
-		dependencies = {
-			{ "folke/neoconf.nvim", cmd = "Neoconf", config = false, dependencies = { "nvim-lspconfig" } },
-			{ "folke/neodev.nvim", opts = {} },
-			"mason.nvim",
-			"williamboman/mason-lspconfig.nvim",
-		},
 		opts = {
 			inlay_hints = { enabled = false },
 		},
-		-- opts = function()
-		-- 	local capabilities = require("cmp_nvim_lsp").default_capabilities()
-		-- 	local lspconfig = require("lspconfig")
-		--
-		-- 	lspconfig.lua_ls.setup({
-		-- 		capabilities = capabilities,
-		-- 	})
-		-- 	lspconfig.gopls.setup({
-		-- 		capabilities = capabilities,
-		-- 	})
-		-- 	inlay_hints = {
-		-- 		enabled = false,
-		-- 	}
-		-- end,
 	},
 	{
 		"williamboman/mason.nvim",
@@ -54,14 +34,6 @@ return {
 				},
 			}
 			return opts
-		end,
-	},
-	{
-		"williamboman/mason-lspconfig.nvim",
-		opts = function()
-			require("mason-lspconfig").setup({
-				ensure_installed = { "lua_ls", "gopls" },
-			})
 		end,
 	},
 	{

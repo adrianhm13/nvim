@@ -31,6 +31,14 @@ return {
 				"vimdoc",
 				"query",
 			},
+			textobjects = {
+				move = {
+					enable = true,
+					goto_next_start = {
+						["]v"] = "@variable_declaration.outer",
+					},
+				},
+			},
 		},
 		config = function(_, opts)
 			require("nvim-treesitter.configs").setup(opts)

@@ -87,7 +87,7 @@ return {
 	-- 			}
 	-- 		end,
 	-- 	}),
-	},
+	-- },
 	-- {
 	-- 	"telescope.nvim",
 	-- 	dependencies = {
