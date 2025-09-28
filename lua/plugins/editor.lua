@@ -14,7 +14,7 @@ return {
 	},
 
 	{
-		"echasnovski/mini.hipatterns",
+		"nvim-mini/mini.hipatterns",
 		event = "BufReadPre",
 		opts = {
 			highlighters = {
@@ -32,7 +32,7 @@ return {
 		},
 	},
 	{
-		"echasnovski/mini.diff",
+		"nvim-mini/mini.diff",
 		event = "VeryLazy",
 		keys = {
 			{
